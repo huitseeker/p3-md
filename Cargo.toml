@@ -1,0 +1,40 @@
+[package]
+name = "p3-uni-stark-mt"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Multi-trace STARK prover built on Plonky3 with minimal abstractions"
+
+[dependencies]
+# Core Plonky3 dependencies (upstream only)
+p3-air = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-challenger = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-commit = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-field = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-matrix = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-util = { git = "https://github.com/Plonky3/Plonky3.git" }
+
+# Optional parallelism
+p3-maybe-rayon = { git = "https://github.com/Plonky3/Plonky3.git" }
+
+# Utilities
+itertools = "0.13"
+tracing = "0.1"
+
+[dev-dependencies]
+# For testing
+p3-baby-bear = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-bn254-fr = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-fri = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-keccak = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-merkle-tree = { git = "https://github.com/Plonky3/Plonky3.git" }
+p3-symmetric = { git = "https://github.com/Plonky3/Plonky3.git" }
+rand = "0.8"
+
+[features]
+default = []
+parallel = ["p3-maybe-rayon/parallel"]
+
+[[example]]
+name = "fibonacci_logup"
+required-features = []
